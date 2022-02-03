@@ -1,22 +1,22 @@
-# modelsis-springboot-fullstack
-Projet Test Backend
+# Application Backend de gestion de produit
 
-Projet Mobile de gestion de produit
+### 1. Introduction
+Cette application backend permette la gestion des produits ainsi que leurs catégories.
+Pour les produits, nous pouvons en créer et modifier et pour les catégories, nous avons
+seulement la possibilté d'en créer.
 
-Ce repertoire contient les differentes implémentations sur le projet GED.
+### 2. La stack utilisée
+Les technologies utilisées sont:
+- JAV 8
+- Spring Data
+- Maven 3.8.1
+- Lombok
+- Spring Rest
+- JPA
+- Spring Boot 2.6.3
+- Postgres 14
 
-1. Le Connecteur situé dans le dossier `connector/` est une application en cours de développement avec le framework Django de python. Il sert essentiellement d'interface entre Alfresco et les autres applications web qui pourront utiliser ses services exposés via API. La raison principale de l'utilisation d'un connecteur est la non disponibilité de certains services clés dans Alfresco, notamment la création d'un document à partir d'un template incluant son remplisage avec de nouvelles données et ceci via API.
-2. Le dossier `Templates` contient les différents templates des documents (Word et Excel) à générables dans Alfresco. Nous prévoyons d'implémenter un script qui les tranferéra automatiquement dans Alfresco. Ce script sera intégré au connecteur qui se chargera de le faire automatiquement pendant des intervales de temps réguliers.
-3.
-4.
+### 3. Execution du projet
+- Pour exécuter le projet il faut lancer la commande: `mvn spring-boot:run` à l'intérieur du projet.
 
-## Procédure de déploiement
-### 1. Déploiement du connecteur
-Dévéloppement en cours
-
-### 2. Déploiement de Alfresco
-Se conférer à la documentation de déploiement de Alfresco disponible sur le lien:
-
-### 3. Interconnection entre le connecteur et Alfresco
-
-**Ce contenu sera completé dans les jours à venir**
+[comment]: <> (**Ce contenu sera completé dans les jours à venir**)
