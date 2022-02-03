@@ -10,11 +10,12 @@ import java.util.Date;
 
 @Entity
 @NoArgsConstructor @AllArgsConstructor @Data
-//@Builder
+@Builder
 public class Product {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true, nullable = false)
     private String name;
     private Date created_date;
     @ManyToOne

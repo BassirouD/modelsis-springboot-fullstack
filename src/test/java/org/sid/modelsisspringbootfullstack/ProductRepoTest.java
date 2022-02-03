@@ -31,24 +31,24 @@ public class ProductRepoTest {
     @Order(1)
     @Rollback(value = false)
     public void saveProductTest() {
-//        ProdcutType prodcutType = productTypeRepo.getById(1L);
-//        Product product = Product.builder().
-//                name("Boisson")
-//                .created_date(new Date())
-//                .prodcutType(prodcutType).build();
-////        Product product = new Product(2L, "Orange", "10/Jan/2022",  prodcutType);
-//        productRepo.save(product);
-//        Assertions.assertThat(product.getId()).isGreaterThan(0);
+        ProdcutType prodcutType = productTypeRepo.getById(1L);
+        Product product = Product.builder().
+                name("Boisson")
+                .created_date(new Date())
+                .prodcutType(prodcutType).build();
+//        Product product = new Product(2L, "Orange", "10/Jan/2022",  prodcutType);
+        productRepo.save(product);
+        Assertions.assertThat(product.getId()).isGreaterThan(0);
     }
 
     @Test
     @Order(2)
     @Rollback(value = false)
     public void saveProductTypeTest() {
-//        ProdcutType prodcutType = ProdcutType.builder().
-//                name("Test").build();
-//        productTypeRepo.save(prodcutType);
-//        Assertions.assertThat(prodcutType.getId()).isGreaterThan(0);
+        ProdcutType prodcutType = ProdcutType.builder().
+                name("Test").build();
+        productTypeRepo.save(prodcutType);
+        Assertions.assertThat(prodcutType.getId()).isGreaterThan(0);
     }
 
     @Test

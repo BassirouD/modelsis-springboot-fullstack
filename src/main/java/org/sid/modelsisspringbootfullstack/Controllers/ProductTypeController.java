@@ -1,5 +1,7 @@
 package org.sid.modelsisspringbootfullstack.Controllers;
 
+import org.sid.modelsisspringbootfullstack.Outils.Response;
+import org.sid.modelsisspringbootfullstack.dao.ProductTypeRepo;
 import org.sid.modelsisspringbootfullstack.entities.ProdcutType;
 import org.sid.modelsisspringbootfullstack.entities.Product;
 import org.sid.modelsisspringbootfullstack.serices.iservices.IProduct;
@@ -22,24 +24,38 @@ public class ProductTypeController {
     @Autowired
     private IProductType productTypeService;
 
+    @Autowired
+    private ProductTypeRepo productTypeRepo;
+
     @PostMapping(value = "/save")
-    ProdcutType saveProductType(@RequestBody ProdcutType prodcutType){
-        logger.info("Insertion produitType ok: " + prodcutType);
-        return productTypeService.save(prodcutType);
+    public Response saveProductType(@RequestBody ProdcutType prodcutType) {
+        Response response = new Response();
+        if (productTypeRepo.findByName(prodcutType.getName()) == null) {
+            try {
+                logger.info("Insertion produitType ok: ");
+                productTypeService.save(prodcutType);
+                response.setMessage("OK").setData(prodcutType);
+            }catch (Exception e) {
+                response.setMessage("ERROR 500");
+            }
+        }else {
+            response.setMessage("Ce type existe déja");
+        }
+        return response;
     }
 
     @PutMapping(value = "/update/{id}")
-    ProdcutType updateProductType(@PathVariable Long id, @RequestBody ProdcutType prodcutType){
+    ProdcutType updateProductType(@PathVariable Long id, @RequestBody ProdcutType prodcutType) {
         return productTypeService.update(id, prodcutType);
     }
 
     @DeleteMapping(value = "/delete/{id}")
-    Boolean deleteProductType(@PathVariable Long id){
+    Boolean deleteProductType(@PathVariable Long id) {
         return productTypeService.delete(id);
     }
 
     @GetMapping(value = "/getAll")
-    List <ProdcutType> getALlProductType(){
+    List<ProdcutType> getALlProductType() {
         return productTypeService.liProdcutTypes();
     }
 

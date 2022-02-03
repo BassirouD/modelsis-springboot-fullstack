@@ -11,11 +11,12 @@ import java.util.List;
 
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor
-//@Builder
+@Builder
 
 public class ProdcutType {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true, nullable = false)
     private String name;
     @OneToMany(mappedBy = "prodcutType", fetch = FetchType.LAZY)
     @JsonIgnore
